@@ -10,41 +10,59 @@ class ItemPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detail Barang'),
       ),
-      body: Container(
-        margin: const EdgeInsets.all(15),
-        child: Center(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Hero(
-                tag: itemArgs.name,
-                child: Image.asset(
-                  itemArgs.picture,
-                ),
-              ),
-              Column(
+      body: ListView(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(15),
+            child: Center(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    itemArgs.name.toString(),
-                    style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    itemArgs.price.toString(),
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    child: Text(
-                      itemArgs.itemdesc.toString(),
-                      style: const TextStyle(fontSize: 17),
+                  Hero(
+                    tag: itemArgs.name,
+                    child: Image.asset(
+                      itemArgs.picture,
                     ),
                   ),
+                  Column(
+                    children: [
+                      Text(
+                        itemArgs.name.toString(),
+                        style: const TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              itemArgs.price.toString(),
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            const Icon(
+                              Icons.favorite,
+                              size: 25,
+                              color: Colors.red,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        child: Text(
+                          itemArgs.itemdesc.toString(),
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

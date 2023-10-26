@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         picture: 'images/samsung.webp',
         spec: 'Snapdragon 8+Gen 2, 12GB RAM, 512GB ROM, 6.7" 120Hz',
         itemdesc:
-            'Spesifikasi Unit : \n - Snapdragon 8+Gen 2 \n - 12GB RAM \n - 512GB ROM \n - 6.7" 120Hz \n - 108MP Camera \n - 5000mAh Battery \n - 5G \n - 1 Tahun Garansi Resmi Samsung Indonesia',
+            'Spesifikasi :\n- Processor : Snapdragon 8 Gen 2 (4nm)\n- Size : 6,1”\n- Technology : Dynamic AMOLED 2X, 48-120Hz\n- Resolution : FHD+ (2400 x 1080) 425 ppi\n- Rear Camera Resolution : 50.0 MP + 12.0 MP + 10.0 MP\n- Main Camera Auto Focus : Yes\n- Rear Camera - OIS : Yes\n- Rear Camera - Zoom : 3x optical zoom, Digital Zoom up to 30x\n- Front Camera Resolution : 12.0 MP\n- Front Camera Auto Focus : No\n- Video Resolution : UHD 8K (7680 x 4320) I @24fps\n- RAM : 8 GB\n- ROM : 128GB / 256GB\n- SIM Tray : Dual-SIM\n- Network Type :5G\n- USB Interface : USB Type-C\n- USB Version : USB Type-C 3.2\n- Earjack : -\n- Bluetooth Version : Bluetooth v5.3\n- NFC : Yes\n- Battery Capacity : 3900mAh Super Fast Charging , Fast Wireless Charging 2.0, Reverse Wireless',
         stok: 5,
         rating: 4.5),
     Item(
@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
         picture: 'images/asus.png',
         spec: 'Snapdragon 8+Gen 2, 8GB RAM, 128GB ROM, 6.7" 120Hz',
         itemdesc:
-            'Spesifikasi Unit : \n - Snapdragon 8+Gen 2 \n - 8GB RAM \n - 128GB ROM \n - 6.7" 120Hz \n - 64MP Camera \n - 5000mAh Battery \n - 5G \n - 1 Tahun Garansi Resmi Asus Indonesia',
+            'Spesifikasi :\n- Processor : Snapdragon 8 Gen 2 (4nm)\n- Size : 6,1”\n- Technology : Dynamic AMOLED 2X, 48-120Hz\n- Resolution : FHD+ (2400 x 1080) 425 ppi\n- Rear Camera Resolution : 50.0 MP + 12.0 MP + 10.0 MP\n- Main Camera Auto Focus : Yes\n- Rear Camera - OIS : Yes\n- Rear Camera - Zoom : 3x optical zoom, Digital Zoom up to 30x\n- Front Camera Resolution : 12.0 MP\n- Front Camera Auto Focus : No\n- Video Resolution : UHD 8K (7680 x 4320) I @24fps\n- RAM : 8 GB\n- ROM : 128GB / 256GB\n- SIM Tray : Dual-SIM\n- Network Type :5G\n- USB Interface : USB Type-C\n- USB Version : USB Type-C 3.2\n- Earjack : -\n- Bluetooth Version : Bluetooth v5.3\n- NFC : Yes\n- Battery Capacity : 3900mAh Super Fast Charging , Fast Wireless Charging 2.0, Reverse Wireless',
         stok: 10,
         rating: 4.0),
     Item(
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
         picture: 'images/iphone.jpg',
         spec: 'A17 Pro Bionic, 8GB RAM, 1TB ROM, 6.69" 120Hz',
         itemdesc:
-            'Spesifikasi Unit : \n - A17 Pro Bionic \n - 8GB RAM \n - 1TB ROM \n - 6.69" 120Hz \n - 108MP Camera \n - 5000mAh Battery \n - 5G \n - 1 Tahun Garansi Resmi Apple Indonesia',
+            'Spesifikasi :\n- Processor : Snapdragon 8 Gen 2 (4nm)\n- Size : 6,1”\n- Technology : Dynamic AMOLED 2X, 48-120Hz\n- Resolution : FHD+ (2400 x 1080) 425 ppi\n- Rear Camera Resolution : 50.0 MP + 12.0 MP + 10.0 MP\n- Main Camera Auto Focus : Yes\n- Rear Camera - OIS : Yes\n- Rear Camera - Zoom : 3x optical zoom, Digital Zoom up to 30x\n- Front Camera Resolution : 12.0 MP\n- Front Camera Auto Focus : No\n- Video Resolution : UHD 8K (7680 x 4320) I @24fps\n- RAM : 8 GB\n- ROM : 128GB / 256GB\n- SIM Tray : Dual-SIM\n- Network Type :5G\n- USB Interface : USB Type-C\n- USB Version : USB Type-C 3.2\n- Earjack : -\n- Bluetooth Version : Bluetooth v5.3\n- NFC : Yes\n- Battery Capacity : 3900mAh Super Fast Charging , Fast Wireless Charging 2.0, Reverse Wireless',
         stok: 10,
         rating: 4.0),
     Item(
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
         picture: 'images/red magic.webp',
         spec: 'Snapdragon 8+Gen2, 24GB RAM, 1TB ROM, 6.8" 120Hz',
         itemdesc:
-            'Spesifikasi Unit : \n - Snapdragon 8+Gen2 \n - 24GB RAM \n - 1TB ROM \n - 6.8" 120Hz \n - 108MP Camera \n - 5000mAh Battery \n - 5G \n - 1 Tahun Garansi Resmi Red Magic Indonesia',
+            'Spesifikasi :\n- Processor : Snapdragon 8 Gen 2 (4nm)\n- Size : 6,1”\n- Technology : Dynamic AMOLED 2X, 48-120Hz\n- Resolution : FHD+ (2400 x 1080) 425 ppi\n- Rear Camera Resolution : 50.0 MP + 12.0 MP + 10.0 MP\n- Main Camera Auto Focus : Yes\n- Rear Camera - OIS : Yes\n- Rear Camera - Zoom : 3x optical zoom, Digital Zoom up to 30x\n- Front Camera Resolution : 12.0 MP\n- Front Camera Auto Focus : No\n- Video Resolution : UHD 8K (7680 x 4320) I @24fps\n- RAM : 8 GB\n- ROM : 128GB / 256GB\n- SIM Tray : Dual-SIM\n- Network Type :5G\n- USB Interface : USB Type-C\n- USB Version : USB Type-C 3.2\n- Earjack : -\n- Bluetooth Version : Bluetooth v5.3\n- NFC : Yes\n- Battery Capacity : 3900mAh Super Fast Charging , Fast Wireless Charging 2.0, Reverse Wireless',
         stok: 10,
         rating: 4.0),
   ];
