@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
             return Material(
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, routeName, arguments: item);
+                  Navigator.pushNamed(context, '/item', arguments: item);
                 },
                 child: Card(
                   child: Container(
