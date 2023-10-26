@@ -5,7 +5,7 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
 
   final List<Item> items = [
-    Item(name: 'Sugar', price: 5000),
+    Item(name: 'Sugar', price: 5000, picture: 'sugar.jpg'),
     Item(name: 'Salt', price: 2000),
   ];
   final routeName = '/item';
