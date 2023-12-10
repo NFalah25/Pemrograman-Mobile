@@ -13,3 +13,4 @@ class Plan {
   String get completenessMessage =>
       '$completedCount out of ${tasks.length} tasks';
 }
+

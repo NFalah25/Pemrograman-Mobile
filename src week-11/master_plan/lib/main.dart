@@ -1,5 +1,6 @@
 //import material.dart
 import 'package:flutter/material.dart';
+import 'package:master_plan/views/plan_creator_screen.dart';
 import './views/plan_screen.dart';
 import './provider/plan_provider.dart';
 import './models/plan.dart';
@@ -19,11 +20,11 @@ class MasterPlanApp extends StatelessWidget {
 
     // Praktikum 2
     return MaterialApp(
-  theme: ThemeData(useMaterial3: false, primarySwatch: Colors.purple),
-  home: PlanProvider(
-    notifier: ValueNotifier<Plan>(const Plan()),
-    child: const PlanScreen(),
-   ),
-);
+      theme: ThemeData(useMaterial3: false, primarySwatch: Colors.purple),
+      home: PlanProvider(
+        notifier: ValueNotifier(List<Plan>.empty(growable: true)),
+        child: const PlanCreatorScreen(),
+      ),
+    );
   }
 }
