@@ -72,6 +72,44 @@ Akhirnya, run atau tekan F5 jika aplikasi belum running. Maka Anda akan melihat 
 
 ### Tambahkan Variabel dan Method
 Tambahkan variabel late dan method di ```class _FuturePageState``` seperti ini.
+![Praktikum 3](images/3.1.png)
+
+### Ganti isi kode dengan onPressed()
+Tambahkan kode berikut pada fungsi ```onPressed()```. Kode sebelumnya bisa Anda *comment.* 
+![Praktikum 3](images/3.2.png)
+
+#### Soal 5
+- Jelaskan maksud kode langkah 2 tersebut!
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "**W12: Soal 5**".
+
+> ```late Completer completer``` untuk deklarasi variable ```completer``` dengan tipe ```Completer```. kata kunci **late** digunakan untuk menunda inisialisasi variable hingga saat diperlukan
+
+> ```Future getNumber()``` digunakan untuk membuat objek **Completer** dengan tipe data **int**. Kemudian memanggil fungsi **calculate**. Kemudian yang terakhir yaitu duture dari completer untuk pemanggil menunggu hasil asinkron
+
+> ```Futeru calculate``` Menunda eksekusi selama 5 detik dengan ```await Future.delayed(const Duration(seconds: 5))```. Setelah penundaan, mengisi ```completer``` dengan nilai 42 menggunakan ```completer.complete(42)```. Ini menandakan bahwa operasi selesai dan memberikan hasilnya kepada objek ```completer```.
+
+> Hasil
+![Praktikum 3](images/soal%206.gif)
+
+### Ganti method calculate()
+Gantilah isi code method ```calculate()``` seperti kode berikut, atau Anda dapat membuat ```calculate2()```
+![Praktikum 3](images/3.3.png)
+
+### Pindah ke onPressed()
+Ganti menjadi kode seperti berikut
+![Pertemuan 3](images/3.4.png)
+
+#### Soal 6
+- Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "W12: Soal 6".
+
+> Blok kode pertama menggunakan try-catch langsung di dalam fungsi yang berisi operasi asinkron.
+
+>Blok kode kedua menggunakan metode then dan catchError untuk menangani hasil dan kesalahan secara terpisah setelah operasi asinkron selesai.
+
+
+> ![Praktikum 3](images/soal%206.gif)
+
 
 
 

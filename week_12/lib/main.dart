@@ -29,7 +29,26 @@ class FuturePage extends StatefulWidget {
 }
 
 class _FuturePageState extends State<FuturePage> {
-  
+  late Completer completer;
+
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  Future calculate() async {
+    // await Future.delayed(const Duration(seconds: 5));
+    // completer.complete(42);
+    // Praktikum 3
+    try {
+      await new Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    } catch (_) {
+      completer.completeError({});
+    }
+  }
+
   Future<int> returnOneAsync() async {
     await Future.delayed(const Duration(seconds: 3));
     return 1;
@@ -79,8 +98,23 @@ class _FuturePageState extends State<FuturePage> {
               // },
               child: const Text('GO!'),
               // Praktikum 2
+              // onPressed: () {
+              //   count();
+              // },
+              // Praktikum 3
               onPressed: () {
-                count();
+                // Praktikum 3
+                // getNumber().then((value) {
+                //   result = value.toString();
+                //   setState(() {});
+                // });
+                getNumber().then((value) {
+                  setState(() {
+                    result = value.toString();
+                  });
+                }).catchError((_) {
+                  result = 'An error occurred';
+                });
               },
             ),
             const Spacer(),
