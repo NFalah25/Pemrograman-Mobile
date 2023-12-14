@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:async/async.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +31,30 @@ class FuturePage extends StatefulWidget {
 
 class _FuturePageState extends State<FuturePage> {
   late Completer completer;
+
+  void returnFG() {
+    // Praktikum 4 langkah 1
+    // FutureGroup<int> futureGroup = FutureGroup<int>();
+    // futureGroup.add(returnOneAsync());
+    // futureGroup.add(returnTwoAsync());
+    // futureGroup.add(returnThreeAsync());
+    // futureGroup.close();
+    // futureGroup.future.then((List<int> value) {
+    //   int total = 0;
+    //   for (var element in value) {
+    //     total += element;
+    //   }
+    //   setState(() {
+    //     result = total.toString();
+    //   });
+    // });
+    // Praktikum 4 langkah 4
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+  }
 
   Future getNumber() {
     completer = Completer<int>();
@@ -108,13 +133,16 @@ class _FuturePageState extends State<FuturePage> {
                 //   result = value.toString();
                 //   setState(() {});
                 // });
-                getNumber().then((value) {
-                  setState(() {
-                    result = value.toString();
-                  });
-                }).catchError((_) {
-                  result = 'An error occurred';
-                });
+                // Praktikum 3
+                // getNumber().then((value) {
+                //   setState(() {
+                //     result = value.toString();
+                //   });
+                // }).catchError((_) {
+                //   result = 'An error occurred';
+                // });
+                // Praktikum 4
+                returnFG();
               },
             ),
             const Spacer(),

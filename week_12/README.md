@@ -67,7 +67,7 @@ Akhirnya, run atau tekan F5 jika aplikasi belum running. Maka Anda akan melihat 
 
 ![Praktikum 2](images/soal%204.gif)
 
-
+---
 ## Menggunakan Completer di Future
 
 ### Tambahkan Variabel dan Method
@@ -109,6 +109,72 @@ Ganti menjadi kode seperti berikut
 
 
 > ![Praktikum 3](images/soal%206.gif)
+
+---
+## Memanggil Future secara paralel
+
+### Buka file ```main.dart``` 
+tambahkan method ini kedalam ```class _FuturePageState```
+
+```dart
+void returnFG() {
+    FutureGroup<int> futureGroup = FutureGroup<int>();
+    futureGroup.add(returnOneAsync());
+    futureGroup.add(returnTwoAsync());
+    futureGroup.add(returnThreeAsync());
+    futureGroup.close();
+    futureGroup.future.then((List<int> value) {
+      int total = 0;
+      for (var element in value) {
+        total += element;
+      }
+      setState(() {
+        result = total.toString();
+      });
+    });
+  }
+```
+
+### Edit onPressed()
+Anda bisa hapus atau comment kode sebelumnya, kemudian panggil method dari langkah 1 tersebut.
+
+```dart
+onPressed:(){
+        returnFG();
+}
+```
+
+### Run
+Anda akan melihat hasilnya dalam 3 detik berupa angka 6 lebih cepat dibandingkan praktikum sebelumnya menunggu sampai 9 detik.
+<img src="images/soal 7.gif" width="800">
+
+### Ganti variabel futureGroup
+Anda dapat menggunakan FutureGroup dengan ```Future.wait``` seperti kode berikut.
+```dart
+final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+```
+#### Soal 7
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu lakukan commit dengan pesan "**W12: Soal 7**".
+<img src="images/soal 7.gif" width="800">
+
+#### Soal 8
+Jelaskan maksud perbedaan kode langkah 1 dan 4
+
+> Kode program Flutter pertama menggunakan kelas FutureGroup untuk mengelola sekelompok Future secara terstruktur. Dalam kode ini, objek futureGroup dibuat sebagai instance dari ```FutureGroup<int>```. Kemudian, tiga Future async (```returnOneAsync()```, ```returnTwoAsync()```, dan ```returnThreeAsync()```) ditambahkan ke dalam futureGroup. Setelah itu, metode ```close()``` dipanggil untuk menandakan bahwa tidak akan ada Future tambahan yang ditambahkan. Selanjutnya, program menunggu sampai semua Future selesai menggunakan futureGroup.future. Setelah hasilnya tersedia, nilai-nilai yang dikembalikan oleh setiap Future dijumlahkan, dan hasilnya diperbarui dalam widget menggunakan ```setState()```.
+
+> Sementara itu, kode kedua menggunakan fungsi Future.wait untuk menunggu sekelompok Future selesai secara bersamaan. Tiga Future async (returnOneAsync(), returnTwoAsync(), dan returnThreeAsync()) ditempatkan dalam sebuah List, dan Future.wait dipanggil dengan List tersebut sebagai argumen. Variabel futures menyimpan hasil dari Future.wait, yang merupakan Future tunggal yang menyelesaikan ketika semua Future dalam List tersebut selesai.
+
+
+---
+## Menangani Respon Error pada Async Code
+
+### Buka file ```main.dart```
+
+
 
 
 
