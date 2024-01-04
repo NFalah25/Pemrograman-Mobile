@@ -19,11 +19,21 @@ class MasterPlanApp extends StatelessWidget {
     // );
 
     // Praktikum 2
-    return MaterialApp(
-      theme: ThemeData(useMaterial3: false, primarySwatch: Colors.purple),
-      home: PlanProvider(
-        notifier: ValueNotifier(List<Plan>.empty(growable: true)),
-        child: const PlanCreatorScreen(),
+    // return MaterialApp(
+    //   theme: ThemeData(useMaterial3: false, primarySwatch: Colors.purple),
+    //   home: PlanProvider(
+    //     notifier: ValueNotifier(List<Plan>.empty(growable: true)),
+    //     child: const PlanCreatorScreen(),
+    //   ),
+    // );
+
+    //Praktikum 3
+    return PlanProvider(
+      notifier: ValueNotifier<List<Plan>>(const[]),
+      child: MaterialApp(
+        theme: ThemeData(useMaterial3: false, primarySwatch: Colors.blue),
+        title: 'State Management App',
+        home: const PlanCreatorScreen(),
       ),
     );
   }

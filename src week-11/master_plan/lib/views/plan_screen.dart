@@ -9,7 +9,7 @@ class PlanScreen extends StatefulWidget {
 
   // Praktikum 3
   final Plan plan;
-  const PlanScreen({super.key, required this.plan});
+  const PlanScreen({Key? key, required this.plan}): super(key: key);
 
   @override
   State createState() => _PlanScreenState();
@@ -22,11 +22,12 @@ class _PlanScreenState extends State<PlanScreen> {
 
   // Praktikum 3
   late ScrollController scrollController;
-  Plan get plan => widget.plan;
+  // Plan get plan => widget.plan;
+  late Plan currentPlan;
 
-  set plan(Plan value) {
-    setState(() {});
-  }
+  // set plan(Plan value) {
+  //   setState(() {});
+  // }
 
 // Praktikum 1
   // @override
@@ -64,25 +65,26 @@ class _PlanScreenState extends State<PlanScreen> {
   @override
   Widget build(BuildContext context) {
     ValueNotifier<List<Plan>> plansNotifier = PlanProvider.of(context);
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Master Plan')),
+      appBar: AppBar(title: Text(currentPlan.name)),
       body: ValueListenableBuilder<List<Plan>>(
         valueListenable: plansNotifier,
         builder: (context, plans, child) {
-          Plan currentPlan = plans.firstWhere((p) => p.name == plan.name);
+          currentPlan = plans.firstWhere((p) => p.name == widget.plan.name);
           return Column(
             children: [
               Expanded(child: _buildList(currentPlan)),
-              SafeArea(child: Text(currentPlan.completenessMessage)),
-            ],
-          );
-        },
-      ),
-      floatingActionButton: _buildAddTaskButton(
-        context,
-      ),
-    );
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 30.0), // Sesuaikan dengan jumlah margin yang diinginkan
+                  child: Text(
+                    currentPlan?.completenessMessage ?? 'No completeness message available',
+                  ),
+                ),
+              ),
+            ],);},),
+      floatingActionButton: _buildAddTaskButton(context,)
+      ,);
   }
 
   // Praktikum 1
@@ -120,20 +122,16 @@ class _PlanScreenState extends State<PlanScreen> {
     return FloatingActionButton(
       child: const Icon(Icons.add),
       onPressed: () {
-        Plan currentPlan = plan;
-        int planIndex =
-            planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
-        List<Task> updatedTasks = List<Task>.from(currentPlan.tasks)
-          ..add(const Task());
-        planNotifier.value = List<Plan>.from(planNotifier.value)
-          ..[planIndex] = Plan(
-            name: currentPlan.name,
-            tasks: updatedTasks,
-          );
-        plan = Plan(
+        Plan currentPlan = planNotifier.value.isNotEmpty ? planNotifier.value[0] : Plan(); // Mengambil plan pertama (atau sesuaikan dengan logika aplikasi Anda)
+        int planIndex = planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
+        List<Task> updatedTasks = List<Task>.from(currentPlan.tasks)..add(const Task());
+        List<Plan> updatedPlans = List<Plan>.from(planNotifier.value);
+        updatedPlans[planIndex] = Plan(
           name: currentPlan.name,
           tasks: updatedTasks,
         );
+
+        planNotifier.value = updatedPlans;
       },
     );
   }
@@ -235,27 +233,26 @@ class _PlanScreenState extends State<PlanScreen> {
 
     return ListTile(
       leading: Checkbox(
-          value: task.complete,
-          onChanged: (selected) {
-            Plan currentPlan = plan;
-            int planIndex = planNotifier.value
-                .indexWhere((p) => p.name == currentPlan.name);
-            planNotifier.value = List<Plan>.from(planNotifier.value)
-              ..[planIndex] = Plan(
-                name: currentPlan.name,
-                tasks: List<Task>.from(currentPlan.tasks)
-                  ..[index] = Task(
-                    description: task.description,
-                    complete: selected ?? false,
-                  ),
-              );
-          }),
+        value: task.complete,
+        onChanged: (selected) {
+          int planIndex =
+          planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
+          planNotifier.value = List<Plan>.from(planNotifier.value)
+            ..[planIndex] = Plan(
+              name: currentPlan.name,
+              tasks: List<Task>.from(currentPlan.tasks)
+                ..[index] = Task(
+                  description: task.description,
+                  complete: selected ?? false,
+                ),
+            );
+        },
+      ),
       title: TextFormField(
         initialValue: task.description,
         onChanged: (text) {
-          Plan currentPlan = plan;
           int planIndex =
-              planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
+          planNotifier.value.indexWhere((p) => p.name == currentPlan.name);
           planNotifier.value = List<Plan>.from(planNotifier.value)
             ..[planIndex] = Plan(
               name: currentPlan.name,
@@ -269,7 +266,6 @@ class _PlanScreenState extends State<PlanScreen> {
       ),
     );
   }
-
 // Praktikum 1
   // @override
   // void initState() {
@@ -287,6 +283,7 @@ class _PlanScreenState extends State<PlanScreen> {
       ..addListener(() {
         FocusScope.of(context).requestFocus(FocusNode());
       });
+    currentPlan = widget.plan; // Inisialisasi variabel mutable
   }
 
   @override
