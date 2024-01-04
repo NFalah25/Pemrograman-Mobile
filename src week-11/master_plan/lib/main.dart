@@ -29,9 +29,9 @@ class MasterPlanApp extends StatelessWidget {
 
     //Praktikum 3
     return PlanProvider(
-      notifier: ValueNotifier<List<Plan>>(const[]),
+      notifier: ValueNotifier<List<Plan>>(const []),
       child: MaterialApp(
-        theme: ThemeData(useMaterial3: false, primarySwatch: Colors.blue),
+        theme: ThemeData(useMaterial3: false, primarySwatch: Colors.pink),
         title: 'State Management App',
         home: const PlanCreatorScreen(),
       ),
